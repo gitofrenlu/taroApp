@@ -27,35 +27,40 @@ class App extends Component {
    */
   config: Config = {
     pages: [
+      'pages/personal/personal',
       'pages/index/index',
-      'pages/personal/personal'
+      
     ],
     window: {
       backgroundTextStyle: 'light',
-      navigationBarBackgroundColor: '#fff',
+      navigationBarBackgroundColor: '#000',
       navigationBarTitleText: 'WeChat',
-      navigationBarTextStyle: 'black'
+      navigationBarTextStyle: 'white'
     },
     tabBar: {
       "color": "#7A7E83",
-      "selectedColor": "#3cc51f",
+      "selectedColor": "#FFD600",
       "borderStyle": "black",
       "backgroundColor": "#ffffff",
       "list": [
         {
           "pagePath": "pages/index/index",
-          "iconPath": "static/image/icon/icon_component.png",
-          "selectedIconPath": "static/image/icon/icon_component_HL.png",
+          "iconPath": "static/image/icon/index.png",
+          "selectedIconPath": "static/image/icon/index_s.png",
           "text": "首页"
         },
         {
           "pagePath": "pages/personal/personal",
-          "iconPath": "static/image/icon/icon_API.png",
-          "selectedIconPath": "static/image/icon/icon_API_HL.png",
-          "text": "test"
+          "iconPath": "static/image/icon/home.png",
+          "selectedIconPath": "static/image/icon/home_s.png",
+          "text": "我的信息"
         }
       ]
     },
+    networkTimeout: {
+      "request": 10000,
+      "downloadFile": 10000
+    }
   }
 
   componentDidMount () {}

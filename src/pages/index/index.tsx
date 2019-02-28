@@ -21,7 +21,8 @@ import './index.scss'
 type PageStateProps = {
   counter: {
     num: number
-  }
+  },
+  name:String
 }
 
 type PageDispatchProps = {
@@ -30,9 +31,11 @@ type PageDispatchProps = {
   asyncAdd: () => any
 }
 
-type PageOwnProps = {}
+type PageOwnProps = {
+}
 
-type PageState = {}
+type PageState = {
+}
 
 type IProps = PageStateProps & PageDispatchProps & PageOwnProps
 
@@ -40,8 +43,8 @@ interface Index {
   props: IProps;
 }
 
-@connect(({ counter }) => ({
-  counter
+@connect(({ counter,name = "23123" }) => ({
+  counter,name
 }), (dispatch) => ({
   add () {
     dispatch(add())
@@ -70,13 +73,7 @@ class Index extends Component {
     console.log(this.props, nextProps)
   }
 
-  turnToPage2(){
-    utils.switchTab('/pages/personal/personal')
-  }
-
-  componentWillUnmount () { 
-    console.log("222"+this.$router);
-    
+  componentWillUnmount () {     
   }
 
   componentDidShow () { }
@@ -86,11 +83,7 @@ class Index extends Component {
   render () {
     return (
       <View className='index'>
-        <Button className='add_btn' onClick={this.turnToPage2}>+</Button>
-        <Button className='dec_btn' onClick={this.props.dec}>-</Button>
-        <Button className='dec_btn' onClick={this.props.asyncAdd}>async</Button>
-        <View><Text>{this.props.counter.num}</Text></View>
-        <View><Text>Hello, World</Text></View>
+        
       </View>
     )
   }
