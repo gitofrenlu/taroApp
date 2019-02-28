@@ -2,6 +2,7 @@ import { ComponentClass } from 'react'
 import Taro, { Component, Config } from '@tarojs/taro'
 import { View, Button, Text } from '@tarojs/components'
 import { connect } from '@tarojs/redux'
+import * as utils from "../../_utils";
 
 import { add, minus, asyncAdd } from '../../actions/counter'
 
@@ -61,7 +62,7 @@ class Index extends Component {
    * 对于像 navigationBarTextStyle: 'black' 这样的推导出的类型是 string
    * 提示和声明 navigationBarTextStyle: 'black' | 'white' 类型冲突, 需要显示声明类型
    */
-    config: Config = {
+  config: Config = {
     navigationBarTitleText: '首页'
   }
 
@@ -69,7 +70,14 @@ class Index extends Component {
     console.log(this.props, nextProps)
   }
 
-  componentWillUnmount () { }
+  turnToPage2(){
+    utils.switchTab('/pages/personal/personal')
+  }
+
+  componentWillUnmount () { 
+    console.log("222"+this.$router);
+    
+  }
 
   componentDidShow () { }
 
@@ -78,7 +86,7 @@ class Index extends Component {
   render () {
     return (
       <View className='index'>
-        <Button className='add_btn' onClick={this.props.add}>+</Button>
+        <Button className='add_btn' onClick={this.turnToPage2}>+</Button>
         <Button className='dec_btn' onClick={this.props.dec}>-</Button>
         <Button className='dec_btn' onClick={this.props.asyncAdd}>async</Button>
         <View><Text>{this.props.counter.num}</Text></View>

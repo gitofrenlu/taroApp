@@ -27,14 +27,35 @@ class App extends Component {
    */
   config: Config = {
     pages: [
-      'pages/index/index'
+      'pages/index/index',
+      'pages/personal/personal'
     ],
     window: {
       backgroundTextStyle: 'light',
       navigationBarBackgroundColor: '#fff',
       navigationBarTitleText: 'WeChat',
       navigationBarTextStyle: 'black'
-    }
+    },
+    tabBar: {
+      "color": "#7A7E83",
+      "selectedColor": "#3cc51f",
+      "borderStyle": "black",
+      "backgroundColor": "#ffffff",
+      "list": [
+        {
+          "pagePath": "pages/index/index",
+          "iconPath": "static/image/icon/icon_component.png",
+          "selectedIconPath": "static/image/icon/icon_component_HL.png",
+          "text": "首页"
+        },
+        {
+          "pagePath": "pages/personal/personal",
+          "iconPath": "static/image/icon/icon_API.png",
+          "selectedIconPath": "static/image/icon/icon_API_HL.png",
+          "text": "test"
+        }
+      ]
+    },
   }
 
   componentDidMount () {}
